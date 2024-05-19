@@ -1,7 +1,4 @@
-import { Text, View, StyleSheet, Image, FlexDirection } from "react-native";
-import { StatusBar } from 'expo-status-bar';
-
-import ImageViewer from '../components/ImageViewer';
+import { Text, View, StyleSheet, Image } from "react-native";
 import Button from '../components/Button';
 
 const PlaceholderImage = require('../assets/images/splash.png');
@@ -20,22 +17,22 @@ export default function Index() {
 
 const styles = StyleSheet.create({
   container: {
-      flex: 1,
-      backgroundColor: '#25292e',
-      alignItems: 'center',
-    },
-    titleText: {
-        fontSize: 45,
-        fontWeight: 'bold',
-        color: '#fff'
-    },
-    imageContainer: {
-      flex: 1,
-      paddingTop: 58,
-    },
-    footerContainer: {
-        flex: 1,
-        alignItems: 'center',
-        flexDirection: 'row',
-    },
+    flex: 1,
+    backgroundColor: '#25292e',
+    alignItems: 'center',
+  },
+  titleText: {
+    fontSize: 45,
+    fontWeight: 'bold',
+    color: '#fff'
+  },
+  imageContainer: {
+    flex: 1,
+    paddingTop: 58,
+  },
+  footerContainer: {
+    flex: 1,
+    alignItems: 'center',
+    flexDirection: 'row',
+  },
 });
