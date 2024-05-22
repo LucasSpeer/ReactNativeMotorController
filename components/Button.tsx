@@ -7,13 +7,12 @@ const defDur = "0.08";
 
 const sendCmd = async ({ cmd = "dn", dur = defDur }) => {
   try {
-    const payloadStr = 'payload=' + encodeURIComponent(
-      JSON.stringify({
-        cmd: cmd,
-        dur: dur,
-      }));
-    const urlStr = url;// + "?data=" + payloadStr;
-    await fetch(urlStr, {
+    const payloadStr = JSON.stringify(
+    {
+      cmd: cmd,
+      dur: dur
+    });
+    await fetch(url, {
       method: 'POST',
       headers: {
         Accept: 'text/plain',
