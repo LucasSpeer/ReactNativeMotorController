@@ -9,7 +9,7 @@ export default function Index() {
       <Text style={styles.titleText}>Motor Controller</Text>
       <View style={styles.footerContainer}>
         <Button theme="up" />
-        <Button theme="down" />
+        <Button theme="dn" />
       </View>
     </View>
   );
@@ -24,7 +24,8 @@ const styles = StyleSheet.create({
   titleText: {
     fontSize: 45,
     fontWeight: 'bold',
-    color: '#fff'
+    color: '#fff',
+    marginVertical: 30,
   },
   imageContainer: {
     flex: 1,
@@ -33,6 +34,5 @@ const styles = StyleSheet.create({
   footerContainer: {
     flex: 1,
     alignItems: 'center',
-    flexDirection: 'row',
   },
 });

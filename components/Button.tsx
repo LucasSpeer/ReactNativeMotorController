@@ -1,17 +1,19 @@
 import { StyleSheet, View, Pressable, Text, } from 'react-native';
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import React, { useState } from 'react';
+import { TouchableHighlight } from 'react-native-gesture-handler';
 
 const url = "http://motors.local:8110";
 const defDur = "0.08";
+const buttonSize = 40;
 
 const sendCmd = async ({ cmd = "dn", dur = defDur }) => {
   try {
     const payloadStr = JSON.stringify(
-    {
-      cmd: cmd,
-      dur: dur
-    });
+      {
+        cmd: cmd,
+        dur: dur
+      });
     await fetch(url, {
       method: 'POST',
       headers: {
@@ -28,40 +30,38 @@ const sendCmd = async ({ cmd = "dn", dur = defDur }) => {
 export default function Button({ theme = "" }) {
   if (theme === "up") {
     return (
-      <View style={[styles.buttonContainer, { borderWidth: 4, borderColor: "#ffd33d", borderRadius: 18 }]}>
-        <Pressable
-          style={[styles.button, { backgroundColor: "#fff" }]}
-          onPress={() => sendCmd({
-            cmd: "up",
-          })}
-        >
-          <FontAwesome
-            name="arrow-up"
-            size={18}
-            color="#25292e"
-            style={styles.buttonIcon}
-          />
-        </Pressable>
-      </View>
+      <TouchableHighlight
+        style={[styles.buttonContainer,]}
+        underlayColor={"#DDD"}
+        onPress={() => sendCmd({
+          cmd: "dn",
+        })}
+      >
+        <FontAwesome
+          name="arrow-up"
+          size={buttonSize}
+          color="#25292e"
+          style={styles.buttonIcon}
+        />
+      </TouchableHighlight>
     );
   }
-  if (theme === "down") {
+  if (theme === "dn") {
     return (
-      <View style={[styles.buttonContainer, { borderWidth: 4, borderColor: "#ffd33d", borderRadius: 18 }]}>
-        <Pressable
-          style={[styles.button, { backgroundColor: "#fff" }]}
-          onPress={() => sendCmd({
-            cmd: "dn",
-          })}
-        >
-          <FontAwesome
-            name="arrow-down"
-            size={18}
-            color="#25292e"
-            style={styles.buttonIcon}
-          />
-        </Pressable>
-      </View>
+      <TouchableHighlight
+        style={[styles.buttonContainer,]}
+        underlayColor={"#DDD"}
+        onPress={() => sendCmd({
+          cmd: "dn",
+        })}
+      >
+        <FontAwesome
+          name="arrow-down"
+          size={buttonSize}
+          color="#25292e"
+          style={styles.buttonIcon}
+        />
+      </TouchableHighlight>
     );
   }
 
@@ -76,12 +76,17 @@ export default function Button({ theme = "" }) {
 
 const styles = StyleSheet.create({
   buttonContainer: {
-    width: 320,
-    height: 68,
+    width: 300,
+    height: 150,
     marginHorizontal: 20,
+    marginVertical: 20,
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 3,
+    padding: 5,
+    borderWidth: 4,
+    borderColor: "#888",
+    backgroundColor: "#fff",
+    borderRadius: 18,
   },
   button: {
     borderRadius: 10,
@@ -90,6 +95,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
+    backgroundColor: "#fff",
   },
   buttonIcon: {
     paddingRight: 8,
