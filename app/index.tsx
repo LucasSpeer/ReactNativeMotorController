@@ -8,7 +8,7 @@ export default function Index() {
     <View style={styles.container}>
       <Text style={styles.titleText}>Motor Controller</Text>
       <View style={styles.footerContainer}>
-        <Button theme="up" />
+        <Button theme="up"  />
         <Button theme="dn" />
       </View>
     </View>

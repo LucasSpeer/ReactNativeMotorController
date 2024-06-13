@@ -34,7 +34,7 @@ export default function Button({ theme = "" }) {
         style={[styles.buttonContainer,]}
         underlayColor={"#DDD"}
         onPress={() => sendCmd({
-          cmd: "dn",
+          cmd: "up",
         })}
       >
         <FontAwesome
